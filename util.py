@@ -25,7 +25,8 @@ def vectorize(tokens, wordvectors):
 
 
 def get_vectors(words, wordvectors, stop_words):
-    return vectorize(get_tokens(words, stop_words), wordvectors)
+    tokens = get_tokens(words, stop_words)
+    return vectorize(tokens, wordvectors)
 
 
 def get_result(proba, label):
