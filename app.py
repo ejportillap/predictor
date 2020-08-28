@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route("/findsubjet", methods=["POST"])
 def predict():
-    req_json = request.json()
+    req_json = request..get_json(silent=True)
     text = req_json["text"]
     vector = util.get_vectors(text, wordvectors, wordvectors)
     labels = model.predict_proba([vector])[0]
@@ -31,7 +31,7 @@ def predict():
 
 @app.route("/update", methods=["POST"])
 def update():
-    response = request.json()
+    response = request..get_json(silent=True)
     path = response["model"]
     project = response["project"]
     bucket = response["bucket"]
