@@ -37,8 +37,9 @@ def update():
     bucket = response["bucket"]
     fs = gcsfs.GCSFileSystem(project=project)
     fs.ls(bucket)
-    with fs.open(path, 'rb') as file:
-        model = pickle.load(file)
+    file = fs.open(path, 'rb')
+    global model
+    model = pickle.load(file)
     return {"status":"success"}
 
 
