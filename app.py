@@ -21,7 +21,7 @@ app = Flask(__name__)
 def predict():
     req_json = request.json()
     text = req_json["text"]
-    vector = util.get_vectors(text, wordvectors)
+    vector = util.get_vectors(text, wordvectors, wordvectors)
     labels = model.predict_proba([vector])[0]
     cat = model.predict_proba([vector])[0]
     code, label  = util.get_result(labels, cat)

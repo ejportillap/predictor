@@ -24,8 +24,8 @@ def vectorize(tokens, wordvectors):
     return np.add.reduce([catch(wordvectors.get_vector, token) for token in tokens]) / len(tokens)
 
 
-def get_vectors(words, wordvectors):
-    return vectorize(get_tokens(words), wordvectors)
+def get_vectors(words, wordvectors, stop_words):
+    return vectorize(get_tokens(words, stop_words), wordvectors)
 
 
 def get_result(proba, label):
