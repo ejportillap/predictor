@@ -31,7 +31,7 @@ def predict():
 
 @app.route("/update", methods=["POST"])
 def update():
-    response = request..get_json(silent=True)
+    response = request.get_json(silent=True)
     path = response["model"]
     project = response["project"]
     bucket = response["bucket"]
