@@ -23,9 +23,9 @@ def predict():
     text = req_json["text"]
     vector = util.get_vectors(text, wordvectors, stop_words)
     vc = np.array([vector]).reshape(1, -1)
-    labels = model.predict_proba(vc)[0]
-    cat = model.predict_proba(vc)[0]
-    code, label  = util.get_result(labels, cat)
+    proba = model.predict_proba(vc)[0]
+    cat = model.predict(vc)[0]
+    code, label  = util.get_result(proba, cat)
     response = {"code":code, "label":label}
     return response
 

@@ -30,7 +30,7 @@ def get_vectors(words, wordvectors, stop_words):
 
 
 def get_result(proba, label):
-    if 1 in label:
+    if label == 1:
         return "CS393", "INFORMACIÓN DEL AVANCE DEL TRAMITE DE LA PRESTACIÓN ECONÓMICA"
     elif proba[1]>0.3:
         return "CS258", "ACTUALIZACIÓN DE DATOS"
