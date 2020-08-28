@@ -22,7 +22,7 @@ def predict():
     req_json = request.get_json(silent=True)
     text = req_json["text"]
     vector = util.get_vectors(text, wordvectors, wordvectors)
-    vc = np.array([vector])
+    vc = np.array([vector]).reshape(1, -1)
     labels = model.predict_proba(vc)[0]
     cat = model.predict_proba(vc)[0]
     code, label  = util.get_result(labels, cat)
