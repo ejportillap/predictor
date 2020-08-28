@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route("/findsubjet", methods=["POST"])
 def predict():
-    req_json = request..get_json(silent=True)
+    req_json = request.get_json(silent=True)
     text = req_json["text"]
     vector = util.get_vectors(text, wordvectors, wordvectors)
     labels = model.predict_proba([vector])[0]
